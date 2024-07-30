@@ -1,3 +1,5 @@
+import 'package:attendance_marking/Auth/auth_service.dart';
+import 'package:attendance_marking/department.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
@@ -13,7 +15,18 @@ void main() async{
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(const HomePage());
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: AuthService().handleAuthState(),
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {

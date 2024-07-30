@@ -5,9 +5,6 @@ import 'package:flutter/material.dart';
 import 'department.dart';
 import 'main.dart';
 
-void main() {
-  runApp(MyLogin());
-}
 
 class MyLogin extends StatelessWidget {
   static const Color customBlue = Color(0xFF015078);
