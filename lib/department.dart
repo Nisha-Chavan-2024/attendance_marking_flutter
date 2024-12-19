@@ -1,27 +1,13 @@
+import 'package:attendance_marking/Auth/auth_service.dart';
 import 'package:attendance_marking/login.dart';
 import 'package:attendance_marking/select_class_div.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyDepartment());
-}
 
 class MyDepartment extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Departments',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
   static const Color customBlue = Color(0xFF015078);
+
+  const MyDepartment({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,18 +20,14 @@ class HomePage extends StatelessWidget {
         ),
         backgroundColor: customBlue,
         centerTitle: true,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.white,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout,color: Colors.white,),
+            onPressed: () {
+              AuthService().signOut(context);
+            },
           ),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => MyLogin()),
-            );
-          },
-        ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(30.0),

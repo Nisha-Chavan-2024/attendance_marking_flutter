@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'login.dart';
 
-void main() {
-  runApp(MyRegistration());
-}
-
 class MyRegistration extends StatelessWidget {
   static const Color customBlue = Color(0xFF015078);
+
+  const MyRegistration({super.key});
 
   @override
   Widget build(BuildContext context) {

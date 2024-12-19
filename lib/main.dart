@@ -1,9 +1,32 @@
+import 'package:attendance_marking/Auth/auth_service.dart';
+import 'package:attendance_marking/department.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+// ...
+
+
 import 'package:flutter/material.dart';
 
 import 'login.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const HomePage());
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: AuthService().handleAuthState(),
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {

@@ -4,10 +4,6 @@ import 'package:flutter/material.dart';
 
 import 'department.dart';
 
-void main() {
-  runApp(MySelect());
-}
-
 class MySelect extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
